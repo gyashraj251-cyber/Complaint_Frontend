@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Dynamically uses Vercel environment variable in production, falls back to local in dev
-const API_BASE_URL = "https://complaint-backend-ou0s.onrender.com";
+// Dynamically uses Vercel environment variable in production, falls back to live Render API URL
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://complaint-backend-ou0s.onrender.com/api";
 
 // Central Axios instance for standard configurations
 const api = axios.create({
