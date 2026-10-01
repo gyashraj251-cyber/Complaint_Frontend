@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Dynamically uses Vercel environment variable in production, falls back to live Render API URL
+// Correct Vite environment variable access with fallback containing /api
 const API_BASE_URL = import.meta.env.VITE_API_URL || "https://complaint-backend-ou0s.onrender.com/api";
 
 // Central Axios instance for standard configurations
@@ -26,6 +26,18 @@ export const trackComplaint = (id) =>
 /* ==========================================================
    ADMIN PORTAL ENDPOINTS
    ========================================================== */
+
+// Admin Registration
+export const registerAdmin = (data) =>
+  api.post('/admin/register', data);
+
+// Admin OTP Verification
+export const verifyOtp = (data) =>
+  api.post('/admin/verify-otp', data);
+
+// Admin Login
+export const loginAdmin = (data) =>
+  api.post('/admin/login', data);
 
 // Fetch all complaints for admin dashboard
 export const fetchAllComplaints = () => 
