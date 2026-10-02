@@ -3,7 +3,8 @@ import { fetchAllComplaints, fetchStats, updateComplaintDetails, deleteComplaint
 import axios from 'axios';
 
 // Backend API Base URL
-const API_BASE_URL = 'http://localhost:8080/api/admin';
+
+const API_BASE_URL = (import.meta.env.VITE_API_URL || "https://complaint-backend-ou0s.onrender.com/api") + "/admin";
 
 export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
